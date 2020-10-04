@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 *  @description :: Common service to send any AJAX requests.
 */
 
-const apiURL = 'http://emberai-backend-hackathon-2020.herokuapp.com';
+const apiURL = 'https://emberai-backend-hackathon-2020.herokuapp.com';
 
 var httpOptions = {
 };

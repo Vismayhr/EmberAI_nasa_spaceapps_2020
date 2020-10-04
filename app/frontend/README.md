@@ -1,4 +1,4 @@
-# Commercial Fishing Hot Predictor
+# Forest Fire Hotspot Prediction
 A data-driven implementation that uses past data from fishing vessel movements to predict the most likely hotspots for commercial fishing at a given time of the year. The prediction results are visualized as choropleth map.
 
   Application is live at [Frontend](https://vessel-predictor.herokuapp.com/past) and [Web Service](https://vessel-predictor-backend.herokuapp.com/).
