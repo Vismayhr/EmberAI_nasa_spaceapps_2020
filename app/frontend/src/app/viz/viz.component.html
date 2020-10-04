@@ -1,0 +1,47 @@
+<!-- <div>
+  <div id="map" style="width:900px;">
+  </div>
+      <div *ngIf="isLoading; else elseBlock" class="spinner-border text-center" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <ng-template #elseBlock>
+        <div>
+          viz works!
+        </div>
+        <app-pie-chart [pieResponse]="apiPieResponse"></app-pie-chart>
+        <app-line-chart></app-line-chart>
+        <app-doughnut-chart></app-doughnut-chart>
+      </ng-template>
+</div> -->
+<div class="row justify-content-around mt-4">
+  <div class="card flex-md-row col-sm-7 col-xs-12 p-0 map-view">
+    <div class="card-body d-flex justify-content-center">
+      <div id="myMap" style="width:100%;">
+      </div>
+    </div>
+  </div>
+  <div class="card flex-md-row col-sm-4 col-xs-12 p-0 details">
+    <div class="card-body align-items-center justify-content-center">
+      <h4>Value range&nbsp;&nbsp;<i class="fas fa-question-circle"></i></h4>
+      <div class="range-high text-right text-danger">{{highestValue}}<i class="fas fa-arrow-up" style="font-size:10px"></i></div>
+      <div class="range-low text-right text-success">{{lowestValue}}<i class="fas fa-arrow-down" style="font-size:10px"></i></div>
+      <div>
+        <canvas id="doughchartContainer" style="height: 270px; width: 300px;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLocationSelected"  id="content" class="card col-sm-6 col-xs-12 p-0">
+    <h4 class="title">Class Overview&nbsp;&nbsp;<i class="fas fa-question-circle"></i></h4>
+    <div class="card-body d-flex justify-content-center">
+      <app-pie-chart [pieResponse]="apiPieResponse"></app-pie-chart>
+    </div>
+  </div>
+  <div *ngIf="isLocationSelected" class="card col-sm-5 col-xs-12 p-0">
+    <h4 class="title">Monthly trend&nbsp;&nbsp;<i class="fas fa-question-circle"></i></h4>
+    <div class="card-body d-flex justify-content-center">
+      <app-line-chart [lineResponse]="apiLineResponse"></app-line-chart>
+    </div>
+  </div>
+
+</div>

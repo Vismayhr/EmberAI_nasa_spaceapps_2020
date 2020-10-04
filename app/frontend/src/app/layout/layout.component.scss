@@ -1,0 +1,16 @@
+@import '../common/layout.scss';
+
+.course-wrapper {
+  position: relative;
+  top: 120px;
+  background-color: #F8F9FD;
+
+  .card-img-right {
+    width: 45%;
+  }
+
+  .actions {
+    position: relative;
+    bottom: -75px;
+  }
+}
