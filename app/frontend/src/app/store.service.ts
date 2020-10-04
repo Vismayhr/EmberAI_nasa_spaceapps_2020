@@ -41,9 +41,9 @@ export class StoreService {
     return throwError('Something went wrong; please try again later.');
   };
 
-  post(endpoint) {
+  post(endpoint, data= {}) {
     this.url = `${apiURL}${endpoint}`;
-    return this.http.post(this.url)
+    return this.http.post(this.url, data, httpOptions)
       .pipe(
         tap(data => console.log('Request successful')),
         catchError(this.handleError)

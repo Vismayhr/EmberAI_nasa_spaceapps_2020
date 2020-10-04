@@ -31,7 +31,7 @@ export class VizComponent implements OnInit {
 
   }
 
-  convertTOGeoJSON(polygons) {
+  convertTOGeoJSON(polygons: any) {
 
     console.log(polygons)
     let features = [];
@@ -39,16 +39,16 @@ export class VizComponent implements OnInit {
     for (const [key, value] of Object.entries(polygons.data)) {
       let polygon = value;
 
-      let properties = { density: polygon.fire_risk };
+      let properties = { density: polygon['fire_risk'] };
       let geometry = {
         "type": "Polygon",
-        "coordinates": [[[polygon.coordinate_sw[1], polygon.coordinate_sw[0]], [polygon.coordinate_se[1], polygon.coordinate_se[0]], [polygon.coordinate_ne[1], polygon.coordinate_ne[0]], [polygon.coordinate_nw[1], polygon.coordinate_nw[0]]]]
+        "coordinates": [[[polygon['coordinate_sw'][1], polygon['coordinate_sw'][0]], [polygon['coordinate_se'][1], polygon['coordinate_se'][0]], [polygon['coordinate_ne'][1], polygon['coordinate_ne'][0]], [polygon['coordinate_nw'][1], polygon['coordinate_nw'][0]]]]
       }
 
       var labels = [];
       let data = [];
 
-      for (const [key, value] of Object.entries(polygon.fire_causes)) {
+      for (const [key, value] of Object.entries(polygon['fire_causes'])) {
         labels.push(key);
         data.push(value)
       }
@@ -86,8 +86,8 @@ export class VizComponent implements OnInit {
 
     this.store.get('/predict-wildfire').subscribe((res) => {
 
-      let dateControl = document.querySelector('input[type="date"]');
-      dateControl.value = res.date.replaceAll("/", "-");
+      let dateControl = document.querySelector('input[type="date"]') as HTMLInputElement;
+      dateControl.value = res["date"].replace(/\//g, "-");
 
       this.geojsonData = this.convertTOGeoJSON(res);
       this.initMap();
@@ -213,8 +213,8 @@ export class VizComponent implements OnInit {
   submitQuery(e) {
     e.preventDefault();
 
-    const dateControl = document.querySelector('input[type="date"]');
-    const date= dateControl.value.replaceAll("-", "/");
+    const dateControl = document.querySelector('input[type="date"]') as HTMLInputElement;
+    const date = dateControl.value.replace(/\-/g, "/");
     this.store.post(`/predict-wildfire?predict_date=${date}`).subscribe((res) => {
 
       this.geojsonData = this.convertTOGeoJSON(res);
