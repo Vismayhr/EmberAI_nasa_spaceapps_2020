@@ -2,16 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
-const apiURL = 'https://frugal-flights.herokuapp.com';
 
+/*
+*  @description :: Common service to send any AJAX requests.
+*/
+
+const apiURL = 'http://emberai-backend-hackathon-2020.herokuapp.com';
+
+var httpOptions = {
+};
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class StoreService {
-  url = '';
+  url: string;
 
   constructor(private http: HttpClient) {
 
@@ -23,45 +31,29 @@ export class StoreService {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
-      // if (error.status == 403) {
-      //   window.location.href = "/home"
-      //   return throwError('Something went wrong; please try again later.');
-      // }
 
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error.message}`);
-      //Swal.fire('Oops..', error.error.message, 'error')
+      Swal.fire('Oops..', error.error.message, 'error')
 
     }
     return throwError('Something went wrong; please try again later.');
   };
 
-  /*
-    post(endpoint, data = {}) {
-
-      if (endpoint == '/signout') {
-        this.email = "";
-        sessionStorage.clear();
-      }
-      else if (endpoint == '/signin' || endpoint == '/user') {
-        this.email = data["email"];
-        sessionStorage.setItem("email", this.email);
-      } else if (endpoint != '/resetpassword' && endpoint != '/forgotpassword' && this.email != "") {
-        data["email"] = this.email;
-      }
-      this.url = `${apiURL}${endpoint}`;
-      return this.http.post(this.url, data, httpOptions)
-        .pipe(
-          tap(data => console.log('Request successful')),
-          catchError(this.handleError)
-        );
-    }
-  */
-  get(endpoint, data = {}) {
+  post(endpoint) {
     this.url = `${apiURL}${endpoint}`;
+    return this.http.post(this.url)
+      .pipe(
+        tap(data => console.log('Request successful')),
+        catchError(this.handleError)
+      );
+  }
 
-    return this.http.get(this.url)
+  get(endpoint, data = {}, otherOptions = {}) {
+    this.url = `${apiURL}${endpoint}`;
+    httpOptions = Object.assign(httpOptions, otherOptions);
+    return this.http.get(this.url, httpOptions)
       .pipe(
         tap(_ => console.log('Request successful')),
         catchError(this.handleError)

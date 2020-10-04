@@ -1,0 +1,1983 @@
+{
+  "data": {
+    "0": {
+      "avg_fire_size": 205,
+      "campsites": 5,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        33.5,
+        -116.5
+      ],
+      "coordinate_nw": [
+        33.5,
+        -117.5
+      ],
+      "coordinate_se": [
+        32.5,
+        -116.5
+      ],
+      "coordinate_sw": [
+        32.5,
+        -117.5
+      ],
+      "fire_causes": {
+        "Arson": 352,
+        "Campfire": 351,
+        "Children": 148,
+        "Debris Burning": 279,
+        "Equipment Use": 1051,
+        "Fireworks": 2,
+        "Lightning": 229,
+        "Miscellaneous": 1544,
+        "Missing/Undefined": 719,
+        "Powerline": 13,
+        "Railroad": 6,
+        "Smoking": 72,
+        "Structure": 4
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 4770,
+      "polygon_id": 7,
+      "population": 70514,
+      "power_lines": 298,
+      "power_stations": 149,
+      "tree_density": 0
+    },
+    "1": {
+      "avg_fire_size": 42,
+      "campsites": 6,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        33.5,
+        -115.5
+      ],
+      "coordinate_nw": [
+        33.5,
+        -116.5
+      ],
+      "coordinate_se": [
+        32.5,
+        -115.5
+      ],
+      "coordinate_sw": [
+        32.5,
+        -116.5
+      ],
+      "fire_causes": {
+        "Arson": 47,
+        "Campfire": 105,
+        "Children": 16,
+        "Debris Burning": 39,
+        "Equipment Use": 140,
+        "Fireworks": 0,
+        "Lightning": 87,
+        "Miscellaneous": 240,
+        "Missing/Undefined": 65,
+        "Powerline": 5,
+        "Railroad": 4,
+        "Smoking": 14,
+        "Structure": 2
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 764,
+      "polygon_id": 8,
+      "population": 581742,
+      "power_lines": 176,
+      "power_stations": 81,
+      "tree_density": 0
+    },
+    "2": {
+      "avg_fire_size": 98,
+      "campsites": 9,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        34.5,
+        -117.5
+      ],
+      "coordinate_nw": [
+        34.5,
+        -118.5
+      ],
+      "coordinate_se": [
+        33.5,
+        -117.5
+      ],
+      "coordinate_sw": [
+        33.5,
+        -118.5
+      ],
+      "fire_causes": {
+        "Arson": 474,
+        "Campfire": 307,
+        "Children": 153,
+        "Debris Burning": 124,
+        "Equipment Use": 693,
+        "Fireworks": 2,
+        "Lightning": 280,
+        "Miscellaneous": 1240,
+        "Missing/Undefined": 469,
+        "Powerline": 10,
+        "Railroad": 8,
+        "Smoking": 187,
+        "Structure": 3
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 3950,
+      "polygon_id": 17,
+      "population": 20714,
+      "power_lines": 1548,
+      "power_stations": 754,
+      "tree_density": 0
+    },
+    "3": {
+      "avg_fire_size": 53,
+      "campsites": 32,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        34.5,
+        -116.5
+      ],
+      "coordinate_nw": [
+        34.5,
+        -117.5
+      ],
+      "coordinate_se": [
+        33.5,
+        -116.5
+      ],
+      "coordinate_sw": [
+        33.5,
+        -117.5
+      ],
+      "fire_causes": {
+        "Arson": 997,
+        "Campfire": 474,
+        "Children": 717,
+        "Debris Burning": 395,
+        "Equipment Use": 2463,
+        "Fireworks": 14,
+        "Lightning": 711,
+        "Miscellaneous": 3753,
+        "Missing/Undefined": 1567,
+        "Powerline": 65,
+        "Railroad": 34,
+        "Smoking": 621,
+        "Structure": 5
+      },
+      "fire_risk": 1.0,
+      "no_of_fires": 11816,
+      "polygon_id": 18,
+      "population": 85133,
+      "power_lines": 488,
+      "power_stations": 244,
+      "tree_density": 0
+    },
+    "4": {
+      "avg_fire_size": 8,
+      "campsites": 5,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        34.5,
+        -115.5
+      ],
+      "coordinate_nw": [
+        34.5,
+        -116.5
+      ],
+      "coordinate_se": [
+        33.5,
+        -115.5
+      ],
+      "coordinate_sw": [
+        33.5,
+        -116.5
+      ],
+      "fire_causes": {
+        "Arson": 266,
+        "Campfire": 89,
+        "Children": 139,
+        "Debris Burning": 80,
+        "Equipment Use": 395,
+        "Fireworks": 5,
+        "Lightning": 125,
+        "Miscellaneous": 979,
+        "Missing/Undefined": 388,
+        "Powerline": 11,
+        "Railroad": 1,
+        "Smoking": 94,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2572,
+      "polygon_id": 19,
+      "population": 436307,
+      "power_lines": 133,
+      "power_stations": 62,
+      "tree_density": 0
+    },
+    "5": {
+      "avg_fire_size": 167,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        35.5,
+        -117.5
+      ],
+      "coordinate_nw": [
+        35.5,
+        -118.5
+      ],
+      "coordinate_se": [
+        34.5,
+        -117.5
+      ],
+      "coordinate_sw": [
+        34.5,
+        -118.5
+      ],
+      "fire_causes": {
+        "Arson": 114,
+        "Campfire": 39,
+        "Children": 66,
+        "Debris Burning": 27,
+        "Equipment Use": 184,
+        "Fireworks": 0,
+        "Lightning": 83,
+        "Miscellaneous": 335,
+        "Missing/Undefined": 257,
+        "Powerline": 6,
+        "Railroad": 1,
+        "Smoking": 61,
+        "Structure": 2
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1175,
+      "polygon_id": 28,
+      "population": 436307,
+      "power_lines": 225,
+      "power_stations": 124,
+      "tree_density": 0
+    },
+    "6": {
+      "avg_fire_size": 14,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        35.5,
+        -116.5
+      ],
+      "coordinate_nw": [
+        35.5,
+        -117.5
+      ],
+      "coordinate_se": [
+        34.5,
+        -116.5
+      ],
+      "coordinate_sw": [
+        34.5,
+        -117.5
+      ],
+      "fire_causes": {
+        "Arson": 18,
+        "Campfire": 16,
+        "Children": 3,
+        "Debris Burning": 5,
+        "Equipment Use": 28,
+        "Fireworks": 4,
+        "Lightning": 26,
+        "Miscellaneous": 37,
+        "Missing/Undefined": 23,
+        "Powerline": 1,
+        "Railroad": 1,
+        "Smoking": 4,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 166,
+      "polygon_id": 29,
+      "population": 634628,
+      "power_lines": 84,
+      "power_stations": 38,
+      "tree_density": 0
+    },
+    "7": {
+      "avg_fire_size": 38,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        35.5,
+        -115.5
+      ],
+      "coordinate_nw": [
+        35.5,
+        -116.5
+      ],
+      "coordinate_se": [
+        34.5,
+        -115.5
+      ],
+      "coordinate_sw": [
+        34.5,
+        -116.5
+      ],
+      "fire_causes": {
+        "Arson": 3,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 1,
+        "Equipment Use": 96,
+        "Fireworks": 1,
+        "Lightning": 49,
+        "Miscellaneous": 14,
+        "Missing/Undefined": 29,
+        "Powerline": 0,
+        "Railroad": 5,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 198,
+      "polygon_id": 30,
+      "population": 6980914,
+      "power_lines": 12,
+      "power_stations": 6,
+      "tree_density": 0
+    },
+    "8": {
+      "avg_fire_size": 321,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        35.5,
+        -114.5
+      ],
+      "coordinate_nw": [
+        35.5,
+        -115.5
+      ],
+      "coordinate_se": [
+        34.5,
+        -114.5
+      ],
+      "coordinate_sw": [
+        34.5,
+        -115.5
+      ],
+      "fire_causes": {
+        "Arson": 5,
+        "Campfire": 11,
+        "Children": 0,
+        "Debris Burning": 3,
+        "Equipment Use": 80,
+        "Fireworks": 0,
+        "Lightning": 94,
+        "Miscellaneous": 21,
+        "Missing/Undefined": 21,
+        "Powerline": 0,
+        "Railroad": 6,
+        "Smoking": 1,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 242,
+      "polygon_id": 31,
+      "population": 6980914,
+      "power_lines": 4,
+      "power_stations": 3,
+      "tree_density": 0
+    },
+    "9": {
+      "avg_fire_size": 29,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        35.5,
+        -113.5
+      ],
+      "coordinate_nw": [
+        35.5,
+        -114.5
+      ],
+      "coordinate_se": [
+        34.5,
+        -113.5
+      ],
+      "coordinate_sw": [
+        34.5,
+        -114.5
+      ],
+      "fire_causes": {
+        "Arson": 1,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 1,
+        "Equipment Use": 0,
+        "Fireworks": 0,
+        "Lightning": 0,
+        "Miscellaneous": 6,
+        "Missing/Undefined": 1,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 9,
+      "polygon_id": 32,
+      "population": 0,
+      "power_lines": 0,
+      "power_stations": 0,
+      "tree_density": 0
+    },
+    "10": {
+      "avg_fire_size": 25,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 97,
+        "Campfire": 2,
+        "Children": 36,
+        "Debris Burning": 94,
+        "Equipment Use": 429,
+        "Fireworks": 0,
+        "Lightning": 12,
+        "Miscellaneous": 523,
+        "Missing/Undefined": 197,
+        "Powerline": 28,
+        "Railroad": 4,
+        "Smoking": 34,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1456,
+      "polygon_id": 37,
+      "population": 465394,
+      "power_lines": 199,
+      "power_stations": 107,
+      "tree_density": 0
+    },
+    "11": {
+      "avg_fire_size": 29,
+      "campsites": 17,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -118.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -119.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -118.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -119.5
+      ],
+      "fire_causes": {
+        "Arson": 1268,
+        "Campfire": 81,
+        "Children": 113,
+        "Debris Burning": 165,
+        "Equipment Use": 667,
+        "Fireworks": 9,
+        "Lightning": 288,
+        "Miscellaneous": 1055,
+        "Missing/Undefined": 251,
+        "Powerline": 27,
+        "Railroad": 15,
+        "Smoking": 109,
+        "Structure": 2
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 4050,
+      "polygon_id": 38,
+      "population": 240721,
+      "power_lines": 241,
+      "power_stations": 103,
+      "tree_density": 0
+    },
+    "12": {
+      "avg_fire_size": 296,
+      "campsites": 15,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -117.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -118.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -117.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -118.5
+      ],
+      "fire_causes": {
+        "Arson": 41,
+        "Campfire": 71,
+        "Children": 49,
+        "Debris Burning": 21,
+        "Equipment Use": 72,
+        "Fireworks": 4,
+        "Lightning": 450,
+        "Miscellaneous": 325,
+        "Missing/Undefined": 51,
+        "Powerline": 10,
+        "Railroad": 0,
+        "Smoking": 13,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1108,
+      "polygon_id": 39,
+      "population": 775657,
+      "power_lines": 27,
+      "power_stations": 19,
+      "tree_density": 0
+    },
+    "13": {
+      "avg_fire_size": 662,
+      "campsites": 1,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -116.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -117.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -116.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -117.5
+      ],
+      "fire_causes": {
+        "Arson": 1,
+        "Campfire": 3,
+        "Children": 1,
+        "Debris Burning": 4,
+        "Equipment Use": 5,
+        "Fireworks": 0,
+        "Lightning": 8,
+        "Miscellaneous": 15,
+        "Missing/Undefined": 3,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 40,
+      "polygon_id": 40,
+      "population": 3490457,
+      "power_lines": 18,
+      "power_stations": 6,
+      "tree_density": 0
+    },
+    "14": {
+      "avg_fire_size": 135,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -115.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -116.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -115.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -116.5
+      ],
+      "fire_causes": {
+        "Arson": 0,
+        "Campfire": 1,
+        "Children": 0,
+        "Debris Burning": 1,
+        "Equipment Use": 6,
+        "Fireworks": 0,
+        "Lightning": 25,
+        "Miscellaneous": 6,
+        "Missing/Undefined": 7,
+        "Powerline": 0,
+        "Railroad": 1,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 47,
+      "polygon_id": 41,
+      "population": 2326971,
+      "power_lines": 1,
+      "power_stations": 2,
+      "tree_density": 0
+    },
+    "15": {
+      "avg_fire_size": 0,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        36.5,
+        -114.5
+      ],
+      "coordinate_nw": [
+        36.5,
+        -115.5
+      ],
+      "coordinate_se": [
+        35.5,
+        -114.5
+      ],
+      "coordinate_sw": [
+        35.5,
+        -115.5
+      ],
+      "fire_causes": {
+        "Arson": 0,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 0,
+        "Equipment Use": 5,
+        "Fireworks": 0,
+        "Lightning": 1,
+        "Miscellaneous": 0,
+        "Missing/Undefined": 1,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 7,
+      "polygon_id": 42,
+      "population": 0,
+      "power_lines": 2,
+      "power_stations": 2,
+      "tree_density": 0
+    },
+    "16": {
+      "avg_fire_size": 26,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        37.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        37.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        36.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        36.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 270,
+        "Campfire": 25,
+        "Children": 114,
+        "Debris Burning": 356,
+        "Equipment Use": 1359,
+        "Fireworks": 0,
+        "Lightning": 31,
+        "Miscellaneous": 2165,
+        "Missing/Undefined": 591,
+        "Powerline": 15,
+        "Railroad": 6,
+        "Smoking": 149,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 5081,
+      "polygon_id": 47,
+      "population": 317314,
+      "power_lines": 153,
+      "power_stations": 67,
+      "tree_density": 0
+    },
+    "17": {
+      "avg_fire_size": 9,
+      "campsites": 13,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        37.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        37.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        36.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        36.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 553,
+        "Campfire": 87,
+        "Children": 280,
+        "Debris Burning": 748,
+        "Equipment Use": 1571,
+        "Fireworks": 0,
+        "Lightning": 111,
+        "Miscellaneous": 3193,
+        "Missing/Undefined": 959,
+        "Powerline": 23,
+        "Railroad": 19,
+        "Smoking": 193,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 7737,
+      "polygon_id": 48,
+      "population": 134248,
+      "power_lines": 282,
+      "power_stations": 114,
+      "tree_density": 0
+    },
+    "18": {
+      "avg_fire_size": 94,
+      "campsites": 45,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        37.5,
+        -118.5
+      ],
+      "coordinate_nw": [
+        37.5,
+        -119.5
+      ],
+      "coordinate_se": [
+        36.5,
+        -118.5
+      ],
+      "coordinate_sw": [
+        36.5,
+        -119.5
+      ],
+      "fire_causes": {
+        "Arson": 240,
+        "Campfire": 301,
+        "Children": 60,
+        "Debris Burning": 206,
+        "Equipment Use": 347,
+        "Fireworks": 0,
+        "Lightning": 908,
+        "Miscellaneous": 528,
+        "Missing/Undefined": 109,
+        "Powerline": 14,
+        "Railroad": 0,
+        "Smoking": 46,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2760,
+      "polygon_id": 49,
+      "population": 698091,
+      "power_lines": 64,
+      "power_stations": 34,
+      "tree_density": 0
+    },
+    "19": {
+      "avg_fire_size": 68,
+      "campsites": 7,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        37.5,
+        -117.5
+      ],
+      "coordinate_nw": [
+        37.5,
+        -118.5
+      ],
+      "coordinate_se": [
+        36.5,
+        -117.5
+      ],
+      "coordinate_sw": [
+        36.5,
+        -118.5
+      ],
+      "fire_causes": {
+        "Arson": 28,
+        "Campfire": 32,
+        "Children": 11,
+        "Debris Burning": 18,
+        "Equipment Use": 56,
+        "Fireworks": 1,
+        "Lightning": 100,
+        "Miscellaneous": 129,
+        "Missing/Undefined": 55,
+        "Powerline": 3,
+        "Railroad": 0,
+        "Smoking": 17,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 451,
+      "polygon_id": 50,
+      "population": 3490457,
+      "power_lines": 9,
+      "power_stations": 14,
+      "tree_density": 0
+    },
+    "20": {
+      "avg_fire_size": 18,
+      "campsites": 1,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        38.5,
+        -121.5
+      ],
+      "coordinate_nw": [
+        38.5,
+        -122.5
+      ],
+      "coordinate_se": [
+        37.5,
+        -121.5
+      ],
+      "coordinate_sw": [
+        37.5,
+        -122.5
+      ],
+      "fire_causes": {
+        "Arson": 244,
+        "Campfire": 47,
+        "Children": 117,
+        "Debris Burning": 128,
+        "Equipment Use": 813,
+        "Fireworks": 3,
+        "Lightning": 17,
+        "Miscellaneous": 1202,
+        "Missing/Undefined": 715,
+        "Powerline": 22,
+        "Railroad": 14,
+        "Smoking": 123,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 3445,
+      "polygon_id": 57,
+      "population": 44183,
+      "power_lines": 730,
+      "power_stations": 365,
+      "tree_density": 0
+    },
+    "21": {
+      "avg_fire_size": 34,
+      "campsites": 5,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        38.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        38.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        37.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        37.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 330,
+        "Campfire": 68,
+        "Children": 101,
+        "Debris Burning": 380,
+        "Equipment Use": 1071,
+        "Fireworks": 1,
+        "Lightning": 54,
+        "Miscellaneous": 1049,
+        "Missing/Undefined": 579,
+        "Powerline": 39,
+        "Railroad": 4,
+        "Smoking": 55,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 3731,
+      "polygon_id": 58,
+      "population": 94336,
+      "power_lines": 634,
+      "power_stations": 317,
+      "tree_density": 0
+    },
+    "22": {
+      "avg_fire_size": 106,
+      "campsites": 15,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        38.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        38.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        37.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        37.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 308,
+        "Campfire": 379,
+        "Children": 131,
+        "Debris Burning": 488,
+        "Equipment Use": 581,
+        "Fireworks": 2,
+        "Lightning": 1056,
+        "Miscellaneous": 1036,
+        "Missing/Undefined": 286,
+        "Powerline": 42,
+        "Railroad": 2,
+        "Smoking": 108,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 4420,
+      "polygon_id": 59,
+      "population": 290871,
+      "power_lines": 79,
+      "power_stations": 37,
+      "tree_density": 0
+    },
+    "23": {
+      "avg_fire_size": 50,
+      "campsites": 31,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        38.5,
+        -118.5
+      ],
+      "coordinate_nw": [
+        38.5,
+        -119.5
+      ],
+      "coordinate_se": [
+        37.5,
+        -118.5
+      ],
+      "coordinate_sw": [
+        37.5,
+        -119.5
+      ],
+      "fire_causes": {
+        "Arson": 14,
+        "Campfire": 154,
+        "Children": 1,
+        "Debris Burning": 6,
+        "Equipment Use": 32,
+        "Fireworks": 1,
+        "Lightning": 843,
+        "Miscellaneous": 113,
+        "Missing/Undefined": 16,
+        "Powerline": 3,
+        "Railroad": 0,
+        "Smoking": 16,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1200,
+      "polygon_id": 60,
+      "population": 1396182,
+      "power_lines": 17,
+      "power_stations": 12,
+      "tree_density": 0
+    },
+    "24": {
+      "avg_fire_size": 10,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        38.5,
+        -117.5
+      ],
+      "coordinate_nw": [
+        38.5,
+        -118.5
+      ],
+      "coordinate_se": [
+        37.5,
+        -117.5
+      ],
+      "coordinate_sw": [
+        37.5,
+        -118.5
+      ],
+      "fire_causes": {
+        "Arson": 0,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 6,
+        "Equipment Use": 5,
+        "Fireworks": 0,
+        "Lightning": 16,
+        "Miscellaneous": 5,
+        "Missing/Undefined": 7,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 40,
+      "polygon_id": 61,
+      "population": 3490457,
+      "power_lines": 1,
+      "power_stations": 1,
+      "tree_density": 0
+    },
+    "25": {
+      "avg_fire_size": 79,
+      "campsites": 7,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        39.5,
+        -122.5
+      ],
+      "coordinate_nw": [
+        39.5,
+        -123.5
+      ],
+      "coordinate_se": [
+        38.5,
+        -122.5
+      ],
+      "coordinate_sw": [
+        38.5,
+        -123.5
+      ],
+      "fire_causes": {
+        "Arson": 217,
+        "Campfire": 55,
+        "Children": 102,
+        "Debris Burning": 396,
+        "Equipment Use": 698,
+        "Fireworks": 0,
+        "Lightning": 158,
+        "Miscellaneous": 1062,
+        "Missing/Undefined": 388,
+        "Powerline": 25,
+        "Railroad": 4,
+        "Smoking": 58,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 3164,
+      "polygon_id": 67,
+      "population": 218153,
+      "power_lines": 134,
+      "power_stations": 57,
+      "tree_density": 0
+    },
+    "26": {
+      "avg_fire_size": 48,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        39.5,
+        -121.5
+      ],
+      "coordinate_nw": [
+        39.5,
+        -122.5
+      ],
+      "coordinate_se": [
+        38.5,
+        -121.5
+      ],
+      "coordinate_sw": [
+        38.5,
+        -122.5
+      ],
+      "fire_causes": {
+        "Arson": 225,
+        "Campfire": 39,
+        "Children": 78,
+        "Debris Burning": 367,
+        "Equipment Use": 623,
+        "Fireworks": 1,
+        "Lightning": 44,
+        "Miscellaneous": 944,
+        "Missing/Undefined": 412,
+        "Powerline": 10,
+        "Railroad": 2,
+        "Smoking": 60,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2805,
+      "polygon_id": 68,
+      "population": 183708,
+      "power_lines": 246,
+      "power_stations": 106,
+      "tree_density": 0
+    },
+    "27": {
+      "avg_fire_size": 25,
+      "campsites": 20,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        39.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        39.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        38.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        38.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 776,
+        "Campfire": 308,
+        "Children": 291,
+        "Debris Burning": 1430,
+        "Equipment Use": 2243,
+        "Fireworks": 2,
+        "Lightning": 338,
+        "Miscellaneous": 2700,
+        "Missing/Undefined": 1156,
+        "Powerline": 75,
+        "Railroad": 30,
+        "Smoking": 222,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 9572,
+      "polygon_id": 69,
+      "population": 85133,
+      "power_lines": 763,
+      "power_stations": 354,
+      "tree_density": 0
+    },
+    "28": {
+      "avg_fire_size": 33,
+      "campsites": 51,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        39.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        39.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        38.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        38.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 81,
+        "Campfire": 691,
+        "Children": 46,
+        "Debris Burning": 119,
+        "Equipment Use": 101,
+        "Fireworks": 0,
+        "Lightning": 1072,
+        "Miscellaneous": 510,
+        "Missing/Undefined": 46,
+        "Powerline": 5,
+        "Railroad": 3,
+        "Smoking": 105,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2779,
+      "polygon_id": 70,
+      "population": 698091,
+      "power_lines": 32,
+      "power_stations": 26,
+      "tree_density": 0
+    },
+    "29": {
+      "avg_fire_size": 334,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        39.5,
+        -118.5
+      ],
+      "coordinate_nw": [
+        39.5,
+        -119.5
+      ],
+      "coordinate_se": [
+        38.5,
+        -118.5
+      ],
+      "coordinate_sw": [
+        38.5,
+        -119.5
+      ],
+      "fire_causes": {
+        "Arson": 1,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 0,
+        "Equipment Use": 0,
+        "Fireworks": 0,
+        "Lightning": 16,
+        "Miscellaneous": 1,
+        "Missing/Undefined": 4,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 22,
+      "polygon_id": 71,
+      "population": 6980914,
+      "power_lines": 0,
+      "power_stations": 0,
+      "tree_density": 0
+    },
+    "30": {
+      "avg_fire_size": 58,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -123.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -124.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -123.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -124.5
+      ],
+      "fire_causes": {
+        "Arson": 45,
+        "Campfire": 47,
+        "Children": 26,
+        "Debris Burning": 125,
+        "Equipment Use": 237,
+        "Fireworks": 0,
+        "Lightning": 172,
+        "Miscellaneous": 367,
+        "Missing/Undefined": 143,
+        "Powerline": 6,
+        "Railroad": 0,
+        "Smoking": 21,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1189,
+      "polygon_id": 77,
+      "population": 436307,
+      "power_lines": 22,
+      "power_stations": 11,
+      "tree_density": 0
+    },
+    "31": {
+      "avg_fire_size": 194,
+      "campsites": 6,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -122.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -123.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -122.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -123.5
+      ],
+      "fire_causes": {
+        "Arson": 245,
+        "Campfire": 100,
+        "Children": 21,
+        "Debris Burning": 203,
+        "Equipment Use": 188,
+        "Fireworks": 0,
+        "Lightning": 588,
+        "Miscellaneous": 329,
+        "Missing/Undefined": 76,
+        "Powerline": 2,
+        "Railroad": 0,
+        "Smoking": 26,
+        "Structure": 18
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1796,
+      "polygon_id": 78,
+      "population": 775657,
+      "power_lines": 5,
+      "power_stations": 7,
+      "tree_density": 0
+    },
+    "32": {
+      "avg_fire_size": 37,
+      "campsites": 4,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -121.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -122.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -121.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -122.5
+      ],
+      "fire_causes": {
+        "Arson": 445,
+        "Campfire": 53,
+        "Children": 189,
+        "Debris Burning": 694,
+        "Equipment Use": 1524,
+        "Fireworks": 4,
+        "Lightning": 201,
+        "Miscellaneous": 1657,
+        "Missing/Undefined": 523,
+        "Powerline": 34,
+        "Railroad": 22,
+        "Smoking": 174,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 5521,
+      "polygon_id": 79,
+      "population": 290871,
+      "power_lines": 150,
+      "power_stations": 61,
+      "tree_density": 0
+    },
+    "33": {
+      "avg_fire_size": 141,
+      "campsites": 36,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 126,
+        "Campfire": 165,
+        "Children": 53,
+        "Debris Burning": 299,
+        "Equipment Use": 284,
+        "Fireworks": 2,
+        "Lightning": 1084,
+        "Miscellaneous": 654,
+        "Missing/Undefined": 101,
+        "Powerline": 8,
+        "Railroad": 36,
+        "Smoking": 58,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2871,
+      "polygon_id": 80,
+      "population": 465394,
+      "power_lines": 107,
+      "power_stations": 48,
+      "tree_density": 0
+    },
+    "34": {
+      "avg_fire_size": 25,
+      "campsites": 15,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 41,
+        "Campfire": 43,
+        "Children": 24,
+        "Debris Burning": 76,
+        "Equipment Use": 83,
+        "Fireworks": 0,
+        "Lightning": 694,
+        "Miscellaneous": 117,
+        "Missing/Undefined": 32,
+        "Powerline": 3,
+        "Railroad": 9,
+        "Smoking": 18,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1140,
+      "polygon_id": 81,
+      "population": 581742,
+      "power_lines": 46,
+      "power_stations": 22,
+      "tree_density": 0
+    },
+    "35": {
+      "avg_fire_size": 0,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        40.5,
+        -118.5
+      ],
+      "coordinate_nw": [
+        40.5,
+        -119.5
+      ],
+      "coordinate_se": [
+        39.5,
+        -118.5
+      ],
+      "coordinate_sw": [
+        39.5,
+        -119.5
+      ],
+      "fire_causes": {
+        "Arson": 0,
+        "Campfire": 0,
+        "Children": 0,
+        "Debris Burning": 0,
+        "Equipment Use": 0,
+        "Fireworks": 0,
+        "Lightning": 0,
+        "Miscellaneous": 0,
+        "Missing/Undefined": 0,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 0,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 0,
+      "polygon_id": 82,
+      "population": 0,
+      "power_lines": 0,
+      "power_stations": 0,
+      "tree_density": 0
+    },
+    "36": {
+      "avg_fire_size": 19,
+      "campsites": 3,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        41.5,
+        -123.5
+      ],
+      "coordinate_nw": [
+        41.5,
+        -124.5
+      ],
+      "coordinate_se": [
+        40.5,
+        -123.5
+      ],
+      "coordinate_sw": [
+        40.5,
+        -124.5
+      ],
+      "fire_causes": {
+        "Arson": 2802,
+        "Campfire": 185,
+        "Children": 29,
+        "Debris Burning": 377,
+        "Equipment Use": 193,
+        "Fireworks": 18,
+        "Lightning": 183,
+        "Miscellaneous": 469,
+        "Missing/Undefined": 167,
+        "Powerline": 18,
+        "Railroad": 0,
+        "Smoking": 21,
+        "Structure": 20
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 4482,
+      "polygon_id": 88,
+      "population": 367416,
+      "power_lines": 69,
+      "power_stations": 32,
+      "tree_density": 0
+    },
+    "37": {
+      "avg_fire_size": 299,
+      "campsites": 14,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        41.5,
+        -122.5
+      ],
+      "coordinate_nw": [
+        41.5,
+        -123.5
+      ],
+      "coordinate_se": [
+        40.5,
+        -122.5
+      ],
+      "coordinate_sw": [
+        40.5,
+        -123.5
+      ],
+      "fire_causes": {
+        "Arson": 140,
+        "Campfire": 157,
+        "Children": 24,
+        "Debris Burning": 130,
+        "Equipment Use": 140,
+        "Fireworks": 1,
+        "Lightning": 1056,
+        "Miscellaneous": 342,
+        "Missing/Undefined": 45,
+        "Powerline": 21,
+        "Railroad": 1,
+        "Smoking": 53,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 2111,
+      "polygon_id": 89,
+      "population": 634628,
+      "power_lines": 24,
+      "power_stations": 17,
+      "tree_density": 0
+    },
+    "38": {
+      "avg_fire_size": 73,
+      "campsites": 17,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        41.5,
+        -121.5
+      ],
+      "coordinate_nw": [
+        41.5,
+        -122.5
+      ],
+      "coordinate_se": [
+        40.5,
+        -121.5
+      ],
+      "coordinate_sw": [
+        40.5,
+        -122.5
+      ],
+      "fire_causes": {
+        "Arson": 272,
+        "Campfire": 243,
+        "Children": 98,
+        "Debris Burning": 432,
+        "Equipment Use": 472,
+        "Fireworks": 0,
+        "Lightning": 679,
+        "Miscellaneous": 898,
+        "Missing/Undefined": 209,
+        "Powerline": 16,
+        "Railroad": 18,
+        "Smoking": 97,
+        "Structure": 1
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 3435,
+      "polygon_id": 90,
+      "population": 367416,
+      "power_lines": 164,
+      "power_stations": 83,
+      "tree_density": 0
+    },
+    "39": {
+      "avg_fire_size": 37,
+      "campsites": 7,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        41.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        41.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        40.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        40.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 41,
+        "Campfire": 49,
+        "Children": 15,
+        "Debris Burning": 71,
+        "Equipment Use": 102,
+        "Fireworks": 0,
+        "Lightning": 1294,
+        "Miscellaneous": 273,
+        "Missing/Undefined": 39,
+        "Powerline": 1,
+        "Railroad": 10,
+        "Smoking": 19,
+        "Structure": 3
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1917,
+      "polygon_id": 91,
+      "population": 634628,
+      "power_lines": 49,
+      "power_stations": 22,
+      "tree_density": 0
+    },
+    "40": {
+      "avg_fire_size": 1010,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        41.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        41.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        40.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        40.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 6,
+        "Campfire": 9,
+        "Children": 0,
+        "Debris Burning": 13,
+        "Equipment Use": 21,
+        "Fireworks": 0,
+        "Lightning": 375,
+        "Miscellaneous": 21,
+        "Missing/Undefined": 22,
+        "Powerline": 1,
+        "Railroad": 0,
+        "Smoking": 2,
+        "Structure": 3
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 473,
+      "polygon_id": 92,
+      "population": 3490457,
+      "power_lines": 3,
+      "power_stations": 2,
+      "tree_density": 0
+    },
+    "41": {
+      "avg_fire_size": 150,
+      "campsites": 5,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        42.5,
+        -123.5
+      ],
+      "coordinate_nw": [
+        42.5,
+        -124.5
+      ],
+      "coordinate_se": [
+        41.5,
+        -123.5
+      ],
+      "coordinate_sw": [
+        41.5,
+        -124.5
+      ],
+      "fire_causes": {
+        "Arson": 91,
+        "Campfire": 259,
+        "Children": 32,
+        "Debris Burning": 59,
+        "Equipment Use": 56,
+        "Fireworks": 0,
+        "Lightning": 187,
+        "Miscellaneous": 200,
+        "Missing/Undefined": 53,
+        "Powerline": 0,
+        "Railroad": 0,
+        "Smoking": 10,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 947,
+      "polygon_id": 99,
+      "population": 2326971,
+      "power_lines": 36,
+      "power_stations": 17,
+      "tree_density": 0
+    },
+    "42": {
+      "avg_fire_size": 171,
+      "campsites": 3,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        42.5,
+        -122.5
+      ],
+      "coordinate_nw": [
+        42.5,
+        -123.5
+      ],
+      "coordinate_se": [
+        41.5,
+        -122.5
+      ],
+      "coordinate_sw": [
+        41.5,
+        -123.5
+      ],
+      "fire_causes": {
+        "Arson": 66,
+        "Campfire": 36,
+        "Children": 24,
+        "Debris Burning": 112,
+        "Equipment Use": 122,
+        "Fireworks": 1,
+        "Lightning": 923,
+        "Miscellaneous": 236,
+        "Missing/Undefined": 45,
+        "Powerline": 4,
+        "Railroad": 13,
+        "Smoking": 16,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 1598,
+      "polygon_id": 100,
+      "population": 634628,
+      "power_lines": 44,
+      "power_stations": 19,
+      "tree_density": 0
+    },
+    "43": {
+      "avg_fire_size": 28,
+      "campsites": 3,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        42.5,
+        -121.5
+      ],
+      "coordinate_nw": [
+        42.5,
+        -122.5
+      ],
+      "coordinate_se": [
+        41.5,
+        -121.5
+      ],
+      "coordinate_sw": [
+        41.5,
+        -122.5
+      ],
+      "fire_causes": {
+        "Arson": 32,
+        "Campfire": 24,
+        "Children": 8,
+        "Debris Burning": 66,
+        "Equipment Use": 76,
+        "Fireworks": 0,
+        "Lightning": 474,
+        "Miscellaneous": 132,
+        "Missing/Undefined": 29,
+        "Powerline": 7,
+        "Railroad": 8,
+        "Smoking": 11,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 867,
+      "polygon_id": 101,
+      "population": 1745228,
+      "power_lines": 45,
+      "power_stations": 17,
+      "tree_density": 0
+    },
+    "44": {
+      "avg_fire_size": 50,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        42.5,
+        -120.5
+      ],
+      "coordinate_nw": [
+        42.5,
+        -121.5
+      ],
+      "coordinate_se": [
+        41.5,
+        -120.5
+      ],
+      "coordinate_sw": [
+        41.5,
+        -121.5
+      ],
+      "fire_causes": {
+        "Arson": 4,
+        "Campfire": 13,
+        "Children": 0,
+        "Debris Burning": 52,
+        "Equipment Use": 32,
+        "Fireworks": 0,
+        "Lightning": 751,
+        "Miscellaneous": 38,
+        "Missing/Undefined": 5,
+        "Powerline": 1,
+        "Railroad": 11,
+        "Smoking": 2,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 909,
+      "polygon_id": 102,
+      "population": 2326971,
+      "power_lines": 21,
+      "power_stations": 10,
+      "tree_density": 0
+    },
+    "45": {
+      "avg_fire_size": 19,
+      "campsites": 0,
+      "carbon_monoxide": 0,
+      "coordinate_ne": [
+        42.5,
+        -119.5
+      ],
+      "coordinate_nw": [
+        42.5,
+        -120.5
+      ],
+      "coordinate_se": [
+        41.5,
+        -119.5
+      ],
+      "coordinate_sw": [
+        41.5,
+        -120.5
+      ],
+      "fire_causes": {
+        "Arson": 6,
+        "Campfire": 3,
+        "Children": 2,
+        "Debris Burning": 13,
+        "Equipment Use": 16,
+        "Fireworks": 1,
+        "Lightning": 139,
+        "Miscellaneous": 25,
+        "Missing/Undefined": 24,
+        "Powerline": 0,
+        "Railroad": 1,
+        "Smoking": 3,
+        "Structure": 0
+      },
+      "fire_risk": 0.0,
+      "no_of_fires": 233,
+      "polygon_id": 103,
+      "population": 0,
+      "power_lines": 13,
+      "power_stations": 6,
+      "tree_density": 0
+    }
+  },
+  "date": "2020/10/04"
+}

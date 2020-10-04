@@ -28,15 +28,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/leaflet/leaflet.css",
-              // "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/assets/leaflet/leaflet.css"
             ],
             "scripts": [
               "src/assets/leaflet/leaflet.js",
-              "src/assets/BoundaryCanvas.js",
-              //  "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              // "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/chart.js/dist/Chart.min.js"
+              "./node_modules/leaflet-choropleth/dist/choropleth.js"
             ],
             "es5BrowserSupport": true
           },
@@ -92,13 +88,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
-            "scripts": [
-               "./node_modules/jquery/dist/jquery.min.js",
-               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"

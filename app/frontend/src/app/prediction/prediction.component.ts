@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import 'node_modules/leaflet-choropleth/dist/choropleth.js'
 import { StoreService } from '../store.service';
+import * as $ from 'jquery';
+import Chart from 'chart.js';
+
+declare let L;
 
 @Component({
   selector: 'app-prediction',
@@ -9,104 +13,120 @@ import { StoreService } from '../store.service';
 })
 export class PredictionComponent implements OnInit {
 
+  geojsonData: any;
+  map: any;
+  year: number;
+  week: number;
 
-  isLoaded = false;
-  selectedMonthCost: string;
-  optimalTimePeriod: string;
-  barObjCons: any;
-  apiLineResponse: any;
-  lineTableValue: any;
-  constructor(private store: StoreService) { }
+
+  constructor(private store: StoreService) {
+
+  }
+
+  convertTOGeoJSON(polygons) {
+    let features = [];
+    let totalValues = [];
+
+    for (var i = 0; i < polygons.result.length; i++) {
+      let polygon = polygons.result[i];
+      if (polygon.predicted_value > 0) {
+
+        let properties = { density: polygon.predicted_value };
+        let geometry = {
+          "type": "Polygon",
+          "coordinates": [[[polygon.lon1, polygon.lat1], [polygon.lon2, polygon.lat2], [polygon.lon3, polygon.lat3], [polygon.lon4, polygon.lat4]]]
+        }
+
+        features.push({
+          "type": "Feature",
+          properties,
+          geometry
+        });
+      }
+    }
+
+    return {
+      "type": "FeatureCollection",
+      "features": features
+    }
+
+  }
+
 
   ngOnInit() {
+    this.map = L.map('mapid').setView([32.00118, -87.359296], 4);
 
-    this.submitQuery();
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      minZoom: 3,
+      maxZoom: 6
+    }).addTo(this.map);
+
+
+    const formData = new FormData();
+    let dateStr = $("#date").val();
+    formData.append('predict_year', dateStr.substring(0, 4));
+    formData.append('predict_week', dateStr.substring(dateStr.length - 2, dateStr.length));
+
+    this.store.post('/fishing-vessel-presence', formData).subscribe((res) => {
+
+      this.geojsonData = this.convertTOGeoJSON(res);
+      this.initMap();
+    });
   }
 
-  submitQuery() {
+  initMap() {
+    var map = this.map;
+    var geojsonLayer;
 
-    this.isLoaded = false;
+    geojsonLayer = L.choropleth(this.geojsonData, {
+      valueProperty: 'density', // which property in the features to use
+      scale: ['white', 'blue'], // chroma.js scale - include as many as you like
+      mode: 'q', // q for quantile, e for equidistant, k for k-means
+      style: {
+        color: '#fff', // border color
+        weight: 0,
+        fillOpacity: 0.9
+      },
+      onEachFeature: ((feature, layer) => {
+        layer.on({
+          mouseover: ((e) => {
+            var layer = e.target;
 
-    setTimeout(() => {
-      var source = $("#sourceSel").val();
-      var destination = $("#desSel").val();
-      var peopleCount = $("#peopleCount").val();
-      var currentMonth = $("#month option:selected").text();
-      var labelObj = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      this.store.get('/get-predictions?origin=' + source + '&destination=' + destination + '&month=' + currentMonth + '&number=' + peopleCount + '&majorclass=Economy', {}).subscribe((res) => {
-        //
-        var predObj = res["preds"];
-        var costObj = predObj["costs"];
-        //
-        this.selectedMonthCost = costObj[currentMonth].toFixed(3);
-        //
-        var optTime = res["optimal_time"];
-        //
-        this.optimalTimePeriod = "before ";
-        if (optTime > 0) {
-          this.optimalTimePeriod = "after ";
-        }
-        //
-        this.optimalTimePeriod = this.optimalTimePeriod + optTime;
-        //
-        var currentMonthIndex = labelObj.indexOf(currentMonth);
-        var selectedMonths = [];
-        //
-        if (currentMonthIndex < 2) {
-          if (currentMonthIndex == 0) {
-            selectedMonths.push(labelObj[10]);
-            selectedMonths.push(labelObj[11]);
-          }
-          else {
-            selectedMonths.push(labelObj[11]);
-            selectedMonths.push(labelObj[0]);
-          }
-          selectedMonths.push(labelObj[currentMonthIndex + 1]);
-          selectedMonths.push(labelObj[currentMonthIndex + 2]);
-        } else {
-          selectedMonths.push(labelObj[currentMonthIndex - 2]);
-          selectedMonths.push(labelObj[currentMonthIndex - 1]);
-          selectedMonths.push(labelObj[currentMonthIndex + 1]);
-          selectedMonths.push(labelObj[currentMonthIndex + 2]);
-        }
-        //
-        this.barObjCons = [];
-        $.each(selectedMonths, (index, rowValue) => {
-          var classess = ['low', 'high', 'medium', 'low'];
-          this.barObjCons.push({ month: rowValue, value: costObj[rowValue].toFixed(2), class: classess[index] })
+            layer.setStyle({
+              weight: 2,
+              fillOpacity: 1
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+              layer.bringToFront();
+            }
+          }),
+          mouseout: ((e) => {
+            geojsonLayer.resetStyle(e.target);
+          }),
         });
-        //
-        var newLineObj = [];
-        this.lineTableValue = [];
-        var selectedCityTrend = res["passenger_trends"][source];
-        $.each(labelObj, (index, rowValue) => {
-          newLineObj.push(selectedCityTrend[rowValue]);
-          //
-          this.lineTableValue.push({ month: rowValue, value: selectedCityTrend[rowValue] });
-        });
-        var lineResObj = {
-          labels: labelObj,
-          data: newLineObj
-        }
-
-        this.apiLineResponse = lineResObj;
-        //
-        this.isLoaded = true;
-        this.collapse();
-        //
-      });
-
-    }, 1000);
+        layer.bindPopup('Density Value: ' + feature.properties.density);
+      })
+    }).addTo(map)
 
   }
 
 
-  collapse() {
-    if (document.getElementById("wrapper").classList.contains("collapse")) {
-      // $('.wrapper').removeClass('collapse');
-    } else {
-      $('.wrapper').addClass('collapse');
-    }
+  submitQuery(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+    let dateStr = $("#date").val();
+    formData.append('predict_year', dateStr.substring(0, 4));
+    formData.append('predict_week', dateStr.substring(dateStr.length - 2, dateStr.length));
+
+    this.store.post('/fishing-vessel-presence', formData).subscribe((res) => {
+
+      this.geojsonData = this.convertTOGeoJSON(res);
+      this.initMap();
+    });
   }
+
 
 }

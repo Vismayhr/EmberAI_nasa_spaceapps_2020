@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-declare let L;
-import '../../assets/BoundaryCanvas.js';
+import { Component, OnInit } from '@angular/core';
+import 'node_modules/leaflet-choropleth/dist/choropleth.js'
+import { StoreService } from '../store.service';
 import * as $ from 'jquery';
 import Chart from 'chart.js';
-import { StoreService } from '../store.service';
 
+declare let L;
 
 @Component({
   selector: 'app-viz',
@@ -13,168 +13,193 @@ import { StoreService } from '../store.service';
 })
 export class VizComponent implements OnInit {
 
-  apiPieResponse: any;
-  @Input() apiMapResponse: any;
-  isLocationSelected = false;
-  isResponseLoaded = false;
-  apiDoughResponse: any;
-  highestValue:string;
-  lowestValue:string;
-  apiLineResponse:any;
+  geojsonData: any;
+  myChart: any;
+  map: any;
+  year: number;
+  week: number;
+  median: number;
+  medianPer: number;
+  lineTrend: any;
+  selectedDensity: any;
+  selectedCoords: any;
+  geojsonLayer: any;
+  showLineChart = false;
+  max = 0;
+
   constructor(private store: StoreService) {
 
   }
 
-  ngOnInit() {
+  convertTOGeoJSON(polygons) {
 
-    //
-    this.apiPieResponse = [];
-    //
-    console.log("haai");
+    console.log(polygons)
+    let features = [];
 
-    const map = L.map('myMap');
-    // $.getJSON('https://cdn.rawgit.com/johan/world.geo.json/34c96bba/countries/CAN.geo.json').then(function(geoJSON) {
-      //https://cdn.rawgit.com/johan/world.geo.json/34c96bba/countries/CAN.geo.json / https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png / /maps.wikimedia.org/osm-intl/
-      var layer = new L.TileLayer.BoundaryCanvas('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-        // boundary: geoJSON,
-        attribution: '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    for (const [key, value] of Object.entries(polygons.data)) {
+      let polygon = value;
+
+      let properties = { density: polygon.fire_risk };
+      let geometry = {
+        "type": "Polygon",
+        "coordinates": [[[polygon.coordinate_sw[1], polygon.coordinate_sw[0]], [polygon.coordinate_se[1], polygon.coordinate_se[0]], [polygon.coordinate_ne[1], polygon.coordinate_ne[0]], [polygon.coordinate_nw[1], polygon.coordinate_nw[0]]]]
+      }
+
+      var labels = [];
+      let data = [];
+
+      for (const [key, value] of Object.entries(polygon.fire_causes)) {
+        labels.push(key);
+        data.push(value)
+      }
+
+
+      let fireCauses = {
+        labels,
+        data
+      }
+
+      features.push({
+        "type": "Feature",
+        properties,
+        geometry,
+        fireCauses,
+        ...polygon
       });
-
-      map.addLayer(layer);
-      //var canadaLayer = L.geoJSON(geoJSON);
-      //map.fitBounds(ukLayer.getBounds());
-      // map.setView([57.634, -101.887], 3.5);
-      map.setView([37.4638719,-114.7448636],5);
-    // });
-    //
-    var sourceColor = "red", sourceFillColor = "#dc3545";
-    var queryType= $("#queryType").val();
-    var selectedCity = $("#citySelected").val();
-
-    console.log(this.apiMapResponse);
-    if( this.apiMapResponse["source_latlng"] )
-    {
-      var sourceLat = this.apiMapResponse["source_latlng"]["latitude"];
-      var sourceLong = this.apiMapResponse["source_latlng"]["longitude"];
-      L.circle([sourceLat, sourceLong], {
-        color: sourceColor,
-        fillColor: sourceFillColor,
-        fillOpacity: 0.6,
-        radius: 20000
-      }).addTo(map);
-
     }
-    //
-      //
-      $.each(this.apiMapResponse["data"], (index,row) => {
-        //
-        //'Business Class', 'Economy', 'First Class', 'Premium Economy'
-        var newRowObj = [];
-          newRowObj.push(row["Business Class"]);
-          newRowObj.push(row["Economy"]);
-          newRowObj.push(row["First Class"]);
-          newRowObj.push(row["Premium Economy"]);
-        var newLineObj = [];
-        var extraParaObj = this.apiMapResponse["extra"][row["city"]];
-        var labelObj = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        $.each(labelObj,(index,rowValue)=>{
-          if( extraParaObj )
-          {
-            newLineObj.push(extraParaObj[rowValue]);
-          }
+
+    return {
+      "type": "FeatureCollection",
+      "features": features
+    }
+
+  }
+
+
+  ngOnInit() {
+    this.map = L.map('mapid').setView([35.00118, -117.359296], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      minZoom: 3
+    }).addTo(this.map);
+
+    this.store.get('/predict-wildfire').subscribe((res) => {
+
+      let dateControl = document.querySelector('input[type="date"]');
+      dateControl.value = res.date.replaceAll("/", "-");
+
+      this.geojsonData = this.convertTOGeoJSON(res);
+      this.initMap();
+    });
+  }
+
+  initMap() {
+    var map = this.map;
+    if(this.geojsonLayer) {
+      this.map.removeLayer(this.geojsonLayer);
+    }
+
+    var info = L.control();
+
+    info.onAdd = function(map) {
+      $(".info").remove();
+      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+      this.update();
+      return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function(props) {
+      this._div.innerHTML = '<h6>Forest Fire Likelihood</h6><div class="legend"><i style="background:#28a745;opacity: 0.4"></i>&nbsp;&nbsp;Low Risk<br><i style="background:#dc3545"></i>&nbsp;&nbsp;High Risk<br></div>';
+    };
+
+    info.addTo(map);
+
+
+    this.geojsonLayer = L.choropleth(this.geojsonData, {
+      valueProperty: 'density', // which property in the features to use
+      scale: ['#28a745', '#dc3545'], // chroma.js scale - include as many as you like
+      mode: 'q', // q for quantile, e for equidistant, k for k-means
+      style: {
+        color: '#fff', // border color
+        weight: 0,
+        fillOpacity: .9
+      },
+      onEachFeature: ((feature, layer) => {
+        layer.on({
+          mouseover: ((e) => {
+            var layer = e.target;
+
+            var popup = L.popup()
+            .setLatLng(e.latlng)
+            .setContent('<p>Coordinates:' + e.latlng + '</p><p>Average fire size: ' + feature.avg_fire_size + '</p>')
+            .openOn(map);
+
+            layer.setStyle({
+              weight: 2,
+              fillOpacity: 1
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+              layer.bringToFront();
+            }
+          }),
+          mouseout: ((e) => {
+            this.geojsonLayer.resetStyle(e.target);
+          }),
+          click: ((e) => {
+            this.showLineChart = false;
+            this.selectedDensity = feature.properties.density;
+            this.selectedCoords = e.latlng;
+            this.lineTrend = feature.fireCauses;
+
+            setTimeout(() => {
+              this.showLineChart = true;
+              $('html, body').animate({
+                scrollTop: $("#scroll-to").offset().top
+              }, 1000);
+            }, 300);
+          })
         });
-        var lineResObj = {
-          labels : labelObj,
-          data : newLineObj
-        }
-        //
-        var plotValue = row["total_expense"], plotLabel = "Cost", plotQuantifier = 10;
-        if( queryType == "PEOPLE_FROM" || queryType == "PEOPLE_TO" || queryType == "TOTAL_PASSENGER_TO" || queryType == "TOTAL_PASSENGER_FROM" )
-        {
-          plotValue = row["passenger_count"];
-          plotLabel = "People to";
-          plotQuantifier = 800;
-          if( queryType == "PEOPLE_FROM" || queryType == "TOTAL_PASSENGER_FROM" )
-          {
-            plotLabel = "People from";
-          }
-        }
-        //
-        var destLat = row["latlng"]["latitude"];
-        var destLon = row["latlng"]["longitude"];
-        //
-        var circle = L.circle([destLat, destLon], {
-          color: "blue",
-          fillColor: "#007AFF",
-          fillOpacity: 0.6,
-          weight: 1,
-          radius: plotValue * plotQuantifier
-        }).addTo(map);
+      })
+    }).addTo(map)
 
-        circle.bindPopup("Total "+plotLabel+" " + row["city"] + ": " + plotValue);
-
-        circle.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        circle.on('mouseout', function (e) {
-            this.closePopup();
-        });
-        circle.on('click',  (e) => {
-            console.log(plotLabel);
-            this.apiPieResponse=[];
-            this.apiLineResponse=[];
-            this.isLocationSelected=false;
-            setTimeout(()=>{
-            this.apiPieResponse = newRowObj;
-            this.apiLineResponse = lineResObj;
-            this.isLocationSelected=true;
-          },300);
-        });
-
-        //
-      });
-      //
-      this.apiDoughResponse = [12 , 100 -12];
-      //data for dough Chart
-      this.isResponseLoaded=true;
-      //
-var doughColor = '#ffc107';
-        //
-        var dataObj = this.apiMapResponse["extra"][$("#citySelected option:selected").text()];
-        //
-        if( dataObj )
-        {
-          var eachPert = dataObj["max"] - dataObj["min"];
-          eachPert = eachPert/100;
-          this.highestValue = dataObj["max"];
-          this.lowestValue = dataObj["min"];
-          //
-          var currentMonthPer = dataObj[$("#month option:selected").text()];
-          //
-          if( ((currentMonthPer - dataObj["min"]) / eachPert ) < 25 )
-          {
-            doughColor = "#28a745";
-          }
-          else if ( ((currentMonthPer - dataObj["min"]) / eachPert ) > 70 )
-          {
-            doughColor = "#dc3545";
-          }
-          //currentMonthPer=currentMonthPer/eachPert;
-          this.apiDoughResponse[0]=currentMonthPer;
-          this.apiDoughResponse[1]=dataObj["max"]-currentMonthPer;
-        }
-        //
+    if (this.myChart == undefined) {
+      info.update();
+    }
 
 
-    //
+    this.drawDoughnut();
+  }
+
+  drawDoughnut() {
+    $("canvas#doughchartContainer").remove();
+
+    $("div.chartreport").append('<canvas id="doughchartContainer" style="height: 170px; width: 210px;"></canvas>');
+
     var ctx = $("#doughchartContainer");
-    var myPieChart = new Chart(ctx, {
+    let per = this.medianPer;
+    let doughColor = '#ffc107';
+
+    if (per < 25) {
+      doughColor = "#28a745";
+    }
+    else if (per > 70) {
+      doughColor = "#dc3545";
+    }
+
+    if (this.myChart != undefined) {
+      this.myChart.destroy();
+    }
+
+    this.myChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Average', 'Total'],
+        labels: ['Median', 'Max'],
         datasets: [{
           label: '# of Votes',
-          data:  this.apiDoughResponse,
+          data: [this.median, this.max],
           backgroundColor: [
             doughColor
           ],
@@ -183,10 +208,18 @@ var doughColor = '#ffc107';
         }]
       }
     });
-    //
-    console.log("hai");
-    console.log(this.apiPieResponse);
-    console.log("hhhh");
+  }
+
+  submitQuery(e) {
+    e.preventDefault();
+
+    const dateControl = document.querySelector('input[type="date"]');
+    const date= dateControl.value.replaceAll("-", "/");
+    this.store.post(`/predict-wildfire?predict_date=${date}`).subscribe((res) => {
+
+      this.geojsonData = this.convertTOGeoJSON(res);
+      this.initMap();
+    });
   }
 
 
