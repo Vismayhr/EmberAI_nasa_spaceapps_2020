@@ -1,0 +1,26 @@
+Execution steps
+---------------
+Now that the application runs inside a docker container, the steps to run the application are:
+
+1. Install docker-ce from https://docs.docker.com/install/  (choose your OS on the left pane)
+
+2. Open a terminal/cmd prompt at the root of the project (i.e inside the 'code' folder)
+
+3. Run: docker build -t map-canadian-magnetic-field .  (Don't forget the dot at the end)
+
+4. Run: docker run -p 1330:8001 map-canadian-magnetic-field  (If port 1330 is taken up on your system, choose another value)
+
+5. On your browser, go to 127.0.0.1:1330 (or the port you selected instead of 1330)
+
+
+Folder Structure
+----------------
+Dockerfile - This file contains the execution steps Docker has to follow when building an image
+requirements.txt - This file lists all of the Python packages that your app depends on.
+config.py - This file contains most of the configuration variables that your app needs.
+/mainapp/ - This is the package that contains your main server application.
+/mainapp/app.py - This is the file that is invoked to start up a development server.
+/mainapp/templates/ - This is where you’ll put the Jinja2 templates for your app. (HTML files)
+/mainapp/templates/scripts - This is where you’ll put the javascrits files. (HTML files)
+/mainapp/templates/css - This is where you’ll put the CSS files. (HTML files)
+
