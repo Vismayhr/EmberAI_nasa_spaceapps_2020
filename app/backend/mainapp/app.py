@@ -23,35 +23,31 @@ def setup():
 	data = pd.read_csv(os.path.join(os.getcwd(), "mainapp/data/polygons_data.csv"))
 	data = data.sort_values(by="polygon_id")
 
+	global polygon_ids
 	global polygon_coords
 	global campsites
 	global power_stations
 	global power_lines
 	# get the 46 polygon coords upfront to calculate weather
 	polygon_coords = [eval(i) for i in list(data["coordinate_sw"].copy())]
+	polygon_ids = np.array(list(data["polygon_id"].copy()))
 	campsites = np.array(list(data["campsites"].copy()))
 	power_stations = np.array(list(data["power_stations"].copy()))
 	power_lines = np.array(list(data["power_lines"].copy()))
+
+	global transformed_data
+	for column in ["coordinate_sw", "coordinate_se", "coordinate_nw", "coordinate_ne", "fire_causes"]:
+		data[column] = data[column].apply(eval) 
+	transformed_data = data.T.to_dict()
 
 	global trained_model
 	trained_model = pickle.load(open("mainapp/models/model.sav", 'rb'))
 	print("Server setup complete. The server can handle user requests now...", flush=True)
 
-
 @app.route('/init', methods=['GET'])
 def init():
 	sys.stdout.flush()
-	return "DONE"
-
-
-@app.errorhandler(404)
-def not_found(error):
-    return render_template('404.html'), 404
-
-
-@app.errorhandler(500)
-def server_error(error):
-    return render_template('500.html'), 500
+	return "init done"
 
 @app.route('/')
 def go_home():
@@ -60,17 +56,15 @@ def go_home():
 @app.route('/predict-wildfires', methods=['POST', 'GET'])
 def home(): 
 	if request.method == 'POST':
-		form_values = request.form.to_dict()
-		date = form_values['predict_date']
+		date = request.args['predict_date']
 		date_obj = datetime.strptime(date, "%Y/%m/%d")
-		print(f"POST request received for prediction. Date: {date}", flush=True)
+		print(f"POST request received for prediction. Date: {date_obj}", flush=True)
 	else:
 		date_obj = datetime.now()
 		print(f"GET request received for prediction. Using default values: {date_obj}", flush=True)
 
-	
 	# send all relevant fields to WildfireFeatureBuilder class
-	wfb = WildfireFeatureBuilder(date_obj, polygon_coords, campsites, power_stations, power_lines)
+	wfb = WildfireFeatureBuilder(date_obj, polygon_ids, polygon_coords, campsites, power_stations, power_lines)
 
 	# get weather for all coordinates on given date
 	wfb.get_weather()
@@ -79,23 +73,13 @@ def home():
 	wfb.build_features()
 
 	# Make the predictions
-	predictions = trained_model.predict(wfb.features)
+	predictions = list(trained_model.predict(wfb.features))
 
-	return jsonify(data=len(predictions))
+	# append the predictions to the JSON
+	for index, _ in enumerate(transformed_data.values()):
+		transformed_data[index].update({"fire_risk": predictions[index]})
 
-@app.route('/visualize-past-data', methods=['POST', 'GET'])
-def visualise_past_data():
-	# if request.method == 'POST':
-	# 	form_values = request.form.to_dict()
-	# 	year = form_values['past_year']
-	# 	week = form_values['past_week']
-	# 	print(f"POST request received for past data. year: {year} and week: {week}", flush=True)
-	
-	# year = float(year)
-	# week = float(week)
-	# response = data.query_for_past_date(year, week)
-	# return render_template('past_visualisation.html', data=response)
-	pass
+	return jsonify(date=date_obj.strftime("%Y/%m/%d"), data=transformed_data)
 
 # Set host to 0.0.0.0 so that it is accessible from 'outside the container'
 if __name__ == '__main__':
