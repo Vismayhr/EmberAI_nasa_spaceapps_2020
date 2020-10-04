@@ -3,8 +3,8 @@ from flask_cors import CORS
 import os
 import pandas as pd
 import pickle
-#from backend_implementation.data import Data
-#from backend_implementation.user_input import UserInput
+from backend_functions.weather import get_weather
+from backend_functions.coordinates import load_coordinates
 #from backend_implementation.model import Model
 
 # Create global variables used throughout the life of the application
@@ -29,7 +29,8 @@ def setup():
 
 @app.route('/init', methods=['GET'])
 def init():
-    return "Init method called"
+	print(get_weather().head())
+	return "DONE"
 
 
 @app.errorhandler(404)
