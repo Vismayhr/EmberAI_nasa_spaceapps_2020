@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_cors import CORS
-import os
+import os, sys
 import pandas as pd
 import pickle
 from backend_functions.weather import get_weather
@@ -20,16 +20,17 @@ CORS(app)
 def setup():
 	print(f"Setting up the server....")
 	global data
-	data = 0
+	data = pd.read_csv("polygons_data.csv")
 	
 	global trained_model
-	trained_model = 0
+	trained_model = pickle.load(open("models/model.sav", 'rb'))
 	print("Server setup complete. The server can handle user requests now...", flush=True)
 
 
 @app.route('/init', methods=['GET'])
 def init():
 	print(get_weather().head())
+	sys.stdout.flush()
 	return "DONE"
 
 
@@ -46,8 +47,8 @@ def server_error(error):
 def go_home():
 	return redirect(url_for('home'))
 
-@app.route('/fishing-vessel-presence', methods=['POST', 'GET'])
-def home(year='2016.0', week='35'): 
+@app.route('/predict-wildfires', methods=['POST', 'GET'])
+def home(): 
 	if request.method == 'POST':
 		form_values = request.form.to_dict()
 		year = form_values['predict_year']
