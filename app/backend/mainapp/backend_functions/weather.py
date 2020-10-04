@@ -6,7 +6,7 @@ def _get_weather(datetime_string="2020-10-04T00:10:00ZP0D:PT1H", coordinates_str
 	username = "dalhousie_lakshminarayangupta"
 	password = "ZQOKzdeux6J95"
 	# get the weather of a given location for a particular date
-	response = requests.get(f"https://{username}:{password}@api.meteomatics.com/{datetime_string}/precip_10min:mm,relative_humidity_2m:p,wind_speed_10m:kmh,direct_rad:W/{coordinates_string}/json?model=mix")
+	response = requests.get(f"https://{username}:{password}@api.meteomatics.com/{datetime_string}/precip_10min:mm,relative_humidity_2m:p,wind_speed_10m:kmh,direct_rad:W/{coordinates_string}/json")
 	# unwrap the json response
 	json_response = response.json()
 
