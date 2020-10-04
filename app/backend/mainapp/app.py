@@ -53,7 +53,7 @@ def init():
 def go_home():
 	return redirect(url_for('home'))
 
-@app.route('/predict-wildfires', methods=['POST', 'GET'])
+@app.route('/predict-wildfire', methods=['POST', 'GET'])
 def home(): 
 	if request.method == 'POST':
 		date = request.args['predict_date']
