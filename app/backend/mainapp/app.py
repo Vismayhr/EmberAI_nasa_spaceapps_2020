@@ -2,10 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_cors import CORS
 import os, sys
 import pandas as pd
+import numpy as np
 import pickle
-from backend_functions.weather import get_weather
-from backend_functions.coordinates import load_coordinates
-#from backend_implementation.model import Model
+from backend_functions.feature_builder import WildfireFeatureBuilder
+from datetime import datetime
 
 # Create global variables used throughout the life of the application
 data = None
@@ -20,16 +20,26 @@ CORS(app)
 def setup():
 	print(f"Setting up the server....")
 	global data
-	data = pd.read_csv("polygons_data.csv")
-	
+	data = pd.read_csv(os.path.join(os.getcwd(), "mainapp/data/polygons_data.csv"))
+	data = data.sort_values(by="polygon_id")
+
+	global polygon_coords
+	global campsites
+	global power_stations
+	global power_lines
+	# get the 46 polygon coords upfront to calculate weather
+	polygon_coords = [eval(i) for i in list(data["coordinate_sw"].copy())]
+	campsites = np.array(list(data["campsites"].copy()))
+	power_stations = np.array(list(data["power_stations"].copy()))
+	power_lines = np.array(list(data["power_lines"].copy()))
+
 	global trained_model
-	trained_model = pickle.load(open("models/model.sav", 'rb'))
+	trained_model = pickle.load(open("mainapp/models/model.sav", 'rb'))
 	print("Server setup complete. The server can handle user requests now...", flush=True)
 
 
 @app.route('/init', methods=['GET'])
 def init():
-	print(get_weather().head())
 	sys.stdout.flush()
 	return "DONE"
 
@@ -51,39 +61,41 @@ def go_home():
 def home(): 
 	if request.method == 'POST':
 		form_values = request.form.to_dict()
-		year = form_values['predict_year']
-		week = form_values['predict_week']
-		print(f"POST request received for prediction. year: {year} and week: {week}", flush=True)
+		date = form_values['predict_date']
+		date_obj = datetime.strptime(date, "%Y/%m/%d")
+		print(f"POST request received for prediction. Date: {date}", flush=True)
 	else:
-		print(f"GET request received for prediction. Using default values: {year} {week}", flush=True)
+		date_obj = datetime.now()
+		print(f"GET request received for prediction. Using default values: {date_obj}", flush=True)
 
-	# Store the user input
-	user_input = UserInput(year, week)
+	
+	# send all relevant fields to WildfireFeatureBuilder class
+	wfb = WildfireFeatureBuilder(date_obj, polygon_coords, campsites, power_stations, power_lines)
 
-	# Update the df with the year and week input by the user
-	data.update_df_with_user_input(user_input)
+	# get weather for all coordinates on given date
+	wfb.get_weather()
 
-	# Encode X_test as per the steps followed during model training
-	data.perform_feature_encoding()
+	# feature engineering for model predictions
+	wfb.build_features()
 
 	# Make the predictions
-	predictions = trained_model.make_predictions(data, year, week)
+	predictions = trained_model.predict(wfb.features)
 
-	return render_template('predictions.html', data=predictions)
+	return jsonify(data=len(predictions))
 
-@app.route('/visualise_past_data', methods=['POST', 'GET'])
-def visualise_past_data(year='2015.0', week='1'):
-
-	if request.method == 'POST':
-		form_values = request.form.to_dict()
-		year = form_values['past_year']
-		week = form_values['past_week']
-		print(f"POST request received for past data. year: {year} and week: {week}", flush=True)
+@app.route('/visualize-past-data', methods=['POST', 'GET'])
+def visualise_past_data():
+	# if request.method == 'POST':
+	# 	form_values = request.form.to_dict()
+	# 	year = form_values['past_year']
+	# 	week = form_values['past_week']
+	# 	print(f"POST request received for past data. year: {year} and week: {week}", flush=True)
 	
-	year = float(year)
-	week = float(week)
-	response = data.query_for_past_date(year, week)
-	return render_template('past_visualisation.html', data=response)
+	# year = float(year)
+	# week = float(week)
+	# response = data.query_for_past_date(year, week)
+	# return render_template('past_visualisation.html', data=response)
+	pass
 
 # Set host to 0.0.0.0 so that it is accessible from 'outside the container'
 if __name__ == '__main__':
