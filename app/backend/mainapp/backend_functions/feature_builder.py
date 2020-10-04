@@ -33,5 +33,4 @@ class WildfireFeatureBuilder:
 
 	@property	
 	def features(self):
-		print(self._features.shape, flush=True)
 		return self._features
